@@ -3,7 +3,7 @@
     <div class="navbar-default">
 
       <div class="navbar-header">
-        <a routerLink="/" class="navbar-brand">SecVo</a>
+        <a routerLink="/" class="navbar-brand">SecVo <small class="text-muted" style="font-size: 10px">v0.1</small></a>
         <button
           class="navbar-toggle collapsed"
           (click) = "toggleMenu()"
@@ -16,9 +16,9 @@
       <div class="collapse navbar-collapse" id="mobileDropdown"
       [ngClass]="{'in': menuIsOpen}">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active"><a routerLink="/questions">Newest</a></li>
-          <li routerLinkActive="active"><a routerLink="/askquestion">Ask a Question</a></li>
-          <li routerLinkActive="active"><a routerLink="/user">User</a></li>
+          <li routerLinkActive="active" (click)="toggleMenuOff()"><a routerLink="/questions">Feed</a></li>
+          <li routerLinkActive="active" (click)="toggleMenuOff()"><a routerLink="/askquestion">Ask a Question</a></li>
+          <li routerLinkActive="active" (click)="toggleMenuOff()"><a routerLink="/user">Profile</a></li>
         </ul>
       </div>
 

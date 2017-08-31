@@ -13,6 +13,10 @@ export class HeaderComponent implements OnInit {
     this.menuIsOpen = bool === false ? true : false;
   }
 
+  toggleMenuOff() {
+    this.menuIsOpen = false;
+  }
+
 
   constructor() { }
 

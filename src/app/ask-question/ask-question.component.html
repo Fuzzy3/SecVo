@@ -1,3 +1,44 @@
-<p>
-  ask-question works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h2>Ask a Question</h2>
+    </div>
+    <form [formGroup]="askQuestionForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>What do you wanna ask?</label>
+        <input
+          type="text"
+          id="question"
+          class="form-control"
+          formControlName="question">
+        <span
+          *ngIf="!askQuestionForm.get('question').valid && askQuestionForm.get('question').touched"
+          class="help-block">Please enter a question.</span>
+
+      </div>
+      <br>
+      <div class="form-group" formArrayName="answers">
+        <h4>Answers</h4>
+        <div
+          class="form-group"
+          *ngFor="let answerControl of askQuestionForm.get('answers').controls; let i = index">
+          <input type="text" class="form-control" [formControlName]="i">
+          <span
+            *ngIf="!askQuestionForm.get('answers').at(i).valid && askQuestionForm.get('answers').at(i).touched"
+            class="help-block">Please enter an answer.</span>
+        </div>
+        <button type="button" class="btn btn-default" (click)="onAddAnswer()">Add Answer</button>
+        <button type="button" class="btn btn-default" (click)="onRemoveAnswer()">Remove Answer</button>
+      </div>
+
+      <button class="btn btn-primary pull-right" type="submit">Submit question</button>
+
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1> </h1>
+  </div>
+</div>
+

@@ -1,24 +1,15 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <div class="page-header">
-      <h2>Feed of questions:</h2>
+      <h2> </h2>
     </div>
   </div>
-</div>
+</div>-->
+
 <div class="row">
-    <div class="single-question mx-auto" *ngFor="let singleQuestion of questionFeed">
-      <div class="col-md-4 col-xs-12">
-        <h3>{{singleQuestion.questionText}}</h3>
-        <div class="v-space-large"></div>
-        <h5>Pick an answer:</h5>
-        <a href="#" class="list-group-item clearfix" *ngFor="let singleAnswer of singleQuestion.possibleAnswers">
-          <div class="pull-left">
-            <h4 class="list-group-item-heading">{{singleAnswer}}</h4>
-          </div>
-        </a>
-        <!-- Input form here for age -->
-        <button class="btn btn-success v-space-small pull-right">Vote</button>
-        <div class="col-xs-12"><hr></div>
-    </div>
-  </div>
+  <app-question
+    *ngFor="let singleQuestion of questionFireFeed | async; let i = index"
+    [question]="singleQuestion"
+    [questionIndex]="i">
+  </app-question>
 </div>

@@ -1,3 +1,21 @@
-<p>
-  question works!
-</p>
+<div class="col-md-12 col-xs-12">
+  <h3>{{question.questionText}}</h3>
+  <div class="v-space-large"></div>
+  <a href="#" class="list-group-item clearfix" *ngFor="let singleAnswer of question.possibleAnswers">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{singleAnswer}} <span class="result-text" *ngIf="resultsShown" >Result</span></h4>
+    </div>
+  </a>
+  <!-- Input form here for age -->
+
+
+  <button class="btn btn-success v-space-small pull-right">Vote</button>
+  <button
+    class="btn btn-primary v-space-small pull-right"
+    style="margin-right: 3px;"
+    (click)="toggleSeeResults()">
+    See Results
+  </button>
+
+  <div class="col-xs-12"><hr></div>
+</div>
